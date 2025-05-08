@@ -1,0 +1,5 @@
+Apple|2|2.99
+Banana|2|0.2
+Milk |1|5.0
+Walnuts|4|0.21
+Eggs|3|0.19
