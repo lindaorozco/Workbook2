@@ -10,7 +10,9 @@ public class Room {
     private boolean available;
 
 
+    public Room(){
 
+    }
     // create constructor
     public Room(int numberOfBeds, int price, boolean occupied, boolean dirty) {
         this.numberOfBeds = numberOfBeds;
