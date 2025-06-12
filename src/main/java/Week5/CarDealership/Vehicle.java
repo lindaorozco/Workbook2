@@ -21,6 +21,10 @@ public class Vehicle {
         this.price = price;
     }
 
+    public String toFileString() {
+        return vinNum + "|" + year + "|" + make + "|" + model + "|" + vehicleType + "|" + color + "|" + odometer + "|" + price;
+    }
+
     public String getVinNum() {
         return vinNum;
     }

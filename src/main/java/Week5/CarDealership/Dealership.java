@@ -10,6 +10,8 @@ public class Dealership {
     private String phoneNumber;
     private List<Vehicle> inventory;
 
+    public Dealership(){}
+
     public Dealership(String name, String address, String phoneNumber) {
         this.name = name;
         this.address = address;
@@ -47,7 +49,14 @@ public class Dealership {
     public void setInventory(List<Vehicle> inventory) {
         this.inventory = inventory;
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    public String toFileString() {
+        return name + "|" + address + "|" + phoneNumber;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
     public List<Vehicle> getVehiclesByPrice(double minPrice, double maxPrice){
@@ -120,15 +129,21 @@ public class Dealership {
     public void addVehicle(Vehicle vehicle) {
         // add to the vehicle list when user chooses to add car
         inventory.add(vehicle);
+        // CALL fw method from dealership file manager
+        DealershipFileManager.writeVehicleFile(vehicle);
+
     }
     public void removeVehicle(String vinNumber){
-        List<Vehicle> vehicles = inventory;
-        for (Vehicle vehicle : vehicles){
+
+        Vehicle vehicleToBeRemoved = null;
+        for (Vehicle vehicle : inventory){
             if (vehicle.getVinNum().equalsIgnoreCase(vinNumber)){
-                vehicles.remove(vehicle);
+                vehicleToBeRemoved = vehicle;
+                break;
             }
         }
-
+        inventory.remove(vehicleToBeRemoved);
+        DealershipFileManager.saveDealership(this);
     }
 
 }

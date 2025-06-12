@@ -31,7 +31,7 @@ public class Main {
         teams.add(new Team("King", team4));
 
         // create a tournament
-        Tournament tournament = new Tournament("World Cup", teams);
+        Tournament tournament = new Tournament("week6.TurtlePaint.src.main.java.com.pluralsight.forms.World Cup", teams);
         // launches the tournament
         tournament.startTournament();
     }
